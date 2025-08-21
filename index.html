@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>Generate Phasor Diagrams</title>
+    <meta name="author" content="Carston Wiebe" />
+    <meta name="description" content="Generate phasor diagrams using SVGs." />
+    <meta name="color-scheme" content="light" />
+
+    <link type="image/x-icon" rel="icon" href="./favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="./index.html.css" />
+    <script type="text/javascript" src="./index.html.js"></script>
+  </head>
+
+  <body onresize="updateSVG ()" onload="updateSVG ()">
+    <header>
+      <h1>Generate Phasor Diagrams</h1>
+    </header>
+
+    <main id="diagram"></main>
+
+    <form>
+      <label for="input">Input Vectors</label>
+      <textarea id="input"
+                rows="10"
+                placeholder="Vs = 7.07 @ 32.8
+Vr: 4.31∠60°
+Vx : 12.0 ∠ -20"
+                onchange="updateSVG ()"
+                onkeypress="updateSVG ()"></textarea>
+
+      <fieldset>
+        <input id="labels"
+               type="checkbox"
+               checked=""
+               onchange="updateSVG ()" />
+        <label for="labels">Show labels</label>
+
+        <br />
+
+        <input id="colors"
+               type="checkbox"
+               checked=""
+               onchange="updateSVG ()" />
+        <label for="colors">Use color</label>
+      </fieldset>
+
+      <button onclick="downloadSVG ()">
+        Download SVG
+      </button>
+    </form>
+
+    <footer>
+      Site by Carston Wiebe
+    </footer>
+  </body>
+</html>
